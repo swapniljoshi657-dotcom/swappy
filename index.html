@@ -55,43 +55,46 @@
                 opacity: 1;
             }
         }
+
+        /* Animation class for cards/timeline entries */
+        /* This class will be added/removed by JavaScript */
+        .animate-fade-in {
+            animation: fadeInUp 1.0s ease-out forwards; 
+            opacity: 0; /* Ensures the element is invisible before animation starts */
+        }
+
         .content-section {
             transition: opacity 0.5s ease-in-out;
         }
 
         /* Mobile menu specific styling (Grouped classes for JS simplicity) */
         .mobile-menu-open {
-            /* These classes were being toggled individually in the original JS. */
-            /* We group them here for a cleaner JS function. */
-            @apply absolute top-16 right-0 bg-gray-800 shadow-lg rounded-lg p-4 flex flex-col;
+            /* Now using light theme classes */
+            @apply absolute top-16 right-0 bg-gray-100 shadow-lg rounded-lg p-4 flex flex-col;
             /* Ensures menu is wide enough on mobile */
             min-width: 200px; 
         }
 
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 transition-colors duration-500">
+<body class="bg-gray-100 text-gray-900">
 
-    <header class="bg-gray-800 shadow-lg fixed top-0 w-full z-50">
+    <header class="bg-white shadow-lg fixed top-0 w-full z-50">
         <nav class="container mx-auto px-4 py-4 flex items-center justify-between md:justify-end">
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-gray-300 hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle navigation menu">
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-200 transition-colors duration-300" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
 
             <div id="nav-menu" class="hidden md:flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 text-lg w-full md:w-auto">
                 <ul class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 text-lg w-full md:w-auto">
-                    <li><a href="#home" data-page-target="home" class="nav-link hover:text-blue-400 transition duration-300 py-2">Home</a></li>
-                    <li><a href="#about" data-page-target="about" class="nav-link hover:text-blue-400 transition duration-300 py-2">About</a></li>
-                    <li><a href="Resume_SJ_.pdf" target="_blank" rel="noopener noreferrer" class="nav-link hover:text-blue-400 transition duration-300 py-2">Resume</a></li>
-                    <li><a href="#experience" data-page-target="experience" class="nav-link hover:text-blue-400 transition duration-300 py-2">Experience</a></li>
-                    <li><a href="#projects" data-page-target="projects" class="nav-link hover:text-blue-400 transition duration-300 py-2">Projects</a></li>
-                    <li><a href="#contact" data-page-target="contact" class="nav-link hover:text-blue-400 transition duration-300 py-2">Contact</a></li>
+                    <li><a href="#home" data-page-target="home" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 py-2">Home</a></li>
+                    <li><a href="#about" data-page-target="about" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 py-2">About</a></li>
+                    <li><a href="Resume_SJ_.pdf" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 py-2">Resume</a></li>
+                    <li><a href="#experience" data-page-target="experience" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 py-2">Experience</a></li>
+                    <li><a href="#projects" data-page-target="projects" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 py-2">Projects</a></li>
+                    <li><a href="#contact" data-page-target="contact" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 py-2">Contact</a></li>
                 </ul>
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle light and dark theme">
-                    <i class="fas fa-sun text-gray-300 dark:hidden"></i>
-                    <i class="fas fa-moon text-gray-300 hidden dark:block"></i>
-                </button>
-            </div>
+                </div>
         </nav>
     </header>
 
@@ -103,158 +106,166 @@
                     <span class="block mt-2">Swapnil Joshi</span>
                 </h1>
                 <p class="mt-4 text-xl sm:text-2xl font-normal text-gray-200 fade-in-up-delay">
-                  Mechanical Engineer
+                    Mechanical Engineer
                 </p>
             </div>
         </section>
 
         <div id="content-pages" class="min-h-screen hidden"> 
             
-            <section id="about" data-page="about" class="content-section py-20 opacity-0">
+            <section id="about" data-page="about" class="content-section py-20 opacity-0 bg-gray-100">
                 <div class="container mx-auto px-4 py-8 md:py-12 flex flex-col md:flex-row items-center md:space-x-12">
                     <div class="md:w-1/3 mb-8 md:mb-0">
                         <img src="https://i.imgur.com/clm6rMS.jpeg" alt="A professional portrait of Swapnil Joshi" class="rounded-lg shadow-xl w-full h-auto">
                     </div>
                     <div class="md:w-2/3">
-                        <h2 class="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-gray-100">ABOUT ME</h2>
-                        <p class="text-base sm:text-lg text-gray-700 dark:text-gray-300 mb-4 leading-relaxed font-normal text-justify">
+                        <h2 class="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-gray-900">ABOUT ME</h2>
+                        <p class="text-base sm:text-lg text-gray-700 mb-4 leading-relaxed font-normal text-justify">
                             I am a highly motivated and results-driven Mechanical Engineer with expertise in product design, development, and manufacturing. With a strong background in software packages like SolidWorks, Creo, and ANSYS, I am dedicated to creating elegant and efficient solutions. My coursework in Product Design, Design Automation, and Material Science complements my hands-on experience in implementing continuous improvement methodologies to enhance production quality and efficiency.
                         </p>
-                        <p class="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-normal text-justify">
+                        <p class="text-base sm:text-lg text-gray-700 leading-relaxed font-normal text-justify">
                             I specialize in cross-functional collaboration, technical documentation, and project management. Whether it's optimizing material usage or designing autonomous systems, my goal is to leverage my skills to build products that make a real impact and drive innovation.
                         </p>
                     </div>
                 </div>
             </section>
-    
-            <section id="experience" data-page="experience" class="content-section py-20 opacity-0">
+        
+            <section id="experience" data-page="experience" class="content-section py-20 opacity-0 bg-gray-50">
                 <div class="container mx-auto px-4 py-8 md:py-12">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900 dark:text-gray-100">EXPERIENCE</h2>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900">EXPERIENCE</h2>
                     
-                    <div class="relative border-l border-gray-300 dark:border-gray-700">
-            
-                      <div class="mb-10 ml-6">
-                        <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-500 rounded-full ring-8 ring-white dark:ring-gray-800"></span>
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Product Design and Development Engineer Intern</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Manufast.in, India | December 2022 – June 2023</p>
-                        <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300 text-sm sm:text-base space-y-1">
-                          <li>Led design optimization efforts resulting in a 15% reduction in material usage, supporting sustainability and improving cost-efficiency.</li>
-                          <li>Improved quality control by testing and validating 20+ redesigned product components, reducing defect rates by 10%.</li>
-                          <li>Enhanced manufacturing efficiency by analyzing workflow and implementing optimized assembly processes, cutting production time by 20%.</li>
-                          <li>Collaborated with cross-functional teams to refine product specifications and ensure compliance with industry standards, contributing to a 30% increase in production quality and efficiency.</li>
+                    <div class="space-y-12 group">
+                        
+                      <div class="experience-card bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl hover:bg-gray-100 transition-opacity duration-300 opacity-0 group-hover:opacity-70 hover:opacity-100">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <i class="fas fa-hammer text-2xl text-blue-600"></i>
+                            <h3 class="text-xl font-bold text-gray-900">Product Design and Development Engineer Intern</h3>
+                        </div>
+                          <div class="flex items-center space-x-2 mb-2">
+                            <img src="https://i.imgur.com/wA1GrbP.png" alt="Manufast logo" class="w-6 h-6 rounded-sm object-contain align-middle -mt-0.5">
+                            <p class="text-sm text-gray-600 mb-4">Manufast.in, India | December 2022 – June 2023</p>
+                          </div>
+                          <ul class="list-disc list-inside mt-2 text-gray-700 text-sm sm:text-base space-y-2">
+                            <li>Led design optimization efforts resulting in a 15% reduction in material usage, supporting sustainability and improving cost-efficiency.</li>
+                            <li>Improved quality control by testing and validating 20+ redesigned product components, reducing defect rates by 10%.</li>
+                            <li>Enhanced manufacturing efficiency by analyzing workflow and implementing optimized assembly processes, cutting production time by 20%.</li>
+                            <li>Collaborated with cross-functional teams to refine product specifications and ensure compliance with industry standards, contributing to a 30% increase in production quality and efficiency.</li>
                         </ul>
                       </div>
             
-                      <div class="mb-10 ml-6">
-                        <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-green-500 rounded-full ring-8 ring-white dark:ring-gray-800"></span>
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">R&D and Digging System Head</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Team MechAgrinics, India | June 2020 – June 2022</p>
-                        <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300 text-sm sm:text-base space-y-1">
-                          <li>Conceptualized, designed, and developed an autonomous onion harvesting system aimed at minimizing post-harvest losses and increasing operational efficiency.</li>
-                          <li>Engineered the machine for diverse field conditions, optimizing traction, balance, and mechanical adaptability, resulting in a 15% increase in harvesting efficiency.</li>
-                          <li>Automated key mechanical functions, significantly reducing manual intervention and lowering labor requirements by 20%.</li>
+                      <div class="experience-card bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl hover:bg-gray-100 transition-opacity duration-300 opacity-0 group-hover:opacity-70 hover:opacity-100">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <i class="fas fa-flask text-2xl text-green-600"></i>
+                            <h3 class="text-xl font-bold text-gray-900">R&D and Digging System Head</h3>
+                        </div>
+                          <div class="flex items-center space-x-2 mb-2">
+                            <img src="https://i.imgur.com/tlKr503.png" alt="Manufast logo" class="w-6 h-6 rounded-sm object-contain align-middle -mt-0.5">
+                            <p class="text-sm text-gray-600 mb-4">Team MechAgrinics, India | June 2020 – June 2022</p>
+                        </div>
+                        <ul class="list-disc list-inside mt-2 text-gray-700 text-sm sm:text-base space-y-2">
+                            <li>Conceptualized, designed, and developed an autonomous onion harvesting system aimed at minimizing post-harvest losses and increasing operational efficiency.</li>
+                            <li>Engineered the machine for diverse field conditions, optimizing traction, balance, and mechanical adaptability, resulting in a 15% increase in harvesting efficiency.</li>
+                            <li>Automated key mechanical functions, significantly reducing manual intervention and lowering labor requirements by 20%.</li>
                         </ul>
                       </div>
-            
-            
                     </div>
                 </div>
             </section>
-    
+        
             
-            <section id="projects" data-page="projects" class="content-section py-20 opacity-0">
+            <section id="projects" data-page="projects" class="content-section py-20 opacity-0 bg-gray-100">
                 <div class="container mx-auto px-4 py-8 md:py-12">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900 dark:text-gray-100">PROJECTS</h2>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900">PROJECTS</h2>
             
                     <div class="grid md:grid-cols-2 gap-10">
             
-                      <div class="bg-gray-100 dark:bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300">
-                        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-                          Autonomous 360° Fire Extinguisher Robot
-                        </h3>
-                        <div class="flex flex-col md:flex-row md:space-x-6">
-                          <div class="md:w-1/2 mb-4 md:mb-0">
-                            <img src="https://i.imgur.com/5XLSyFS.jpeg" alt="Autonomous Fire Extinguisher Robot" class="rounded-lg shadow-lg w-full h-auto">
-                          </div>
-                          <div class="md:w-1/2 text-gray-700 dark:text-gray-300">
-                            <p class="mb-2"><strong>Objective:</strong> Rapid-response robot to extinguish fires from any angle.</p>
-                            <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
-                              <li>Designed navigation for tight indoor spaces.</li>
-                              <li>Integrated 360° nozzle system for faster coverage.</li>
-                              <li>Reduced emergency response time by 25% in simulation tests.</li>
-                            </ul>
-                            <p class="mt-2"><strong>My Role:</strong> CAD Design, Prototyping, Testing.</p>
-                          </div>
+                        <div class="bg-white rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300">
+                            <h3 class="text-2xl font-bold mb-4 text-gray-900">
+                                Autonomous 360° Fire Extinguisher Robot
+                            </h3>
+                            <div class="flex flex-col md:flex-row md:space-x-6">
+                                <div class="md:w-1/2 mb-4 md:mb-0">
+                                    <img src="https://i.imgur.com/5XLSyFS.jpeg" alt="Autonomous Fire Extinguisher Robot" class="rounded-lg shadow-lg w-full h-auto">
+                                </div>
+                                <div class="md:w-1/2 text-gray-700">
+                                    <p class="mb-2"><strong>Objective:</strong> Rapid-response robot to extinguish fires from any angle.</p>
+                                    <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
+                                        <li>Designed navigation for tight indoor spaces.</li>
+                                        <li>Integrated 360° nozzle system for faster coverage.</li>
+                                        <li>Reduced emergency response time by 25% in simulation tests.</li>
+                                    </ul>
+                                    <p class="mt-2"><strong>My Role:</strong> CAD Design, Prototyping, Testing.</p>
+                                </div>
+                            </div>
                         </div>
-                      </div>
             
-                      <div class="bg-gray-100 dark:bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300">
-                        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-                          Hydraulic Lift and Drop Arm
-                        </h3>
-                        <div class="flex flex-col md:flex-row md:space-x-6">
-                          <div class="md:w-1/2 mb-4 md:mb-0">
-                            <img src="https://i.imgur.com/o6jZnhH.png" alt="Hydraulic lift prototype" class="rounded-lg shadow-lg w-full h-auto">
-                          </div>
-                          <div class="md:w-1/2 text-gray-700 dark:text-gray-300">
-                            <p class="mb-2"><strong>Objective:</strong> Mechanism for moving heavy loads safely.</p>
-                            <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
-                              <li>Developed compact hydraulic system for efficient lifting.</li>
-                              <li>Reduced manual handling time by 30%.</li>
-                              <li>Improved workplace safety, cutting injury reports.</li>
-                            </ul>
-                            <p class="mt-2"><strong>My Role:</strong> System Modeling, Stress Analysis, Fabrication.</p>
-                          </div>
+                        <div class="bg-white rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300">
+                            <h3 class="text-2xl font-bold mb-4 text-gray-900">
+                                Hydraulic Lift and Drop Arm
+                            </h3>
+                            <div class="flex flex-col md:flex-row md:space-x-6">
+                                <div class="md:w-1/2 mb-4 md:mb-0">
+                                    <img src="https://i.imgur.com/o6jZnhH.png" alt="Hydraulic lift prototype" class="rounded-lg shadow-lg w-full h-auto">
+                                </div>
+                                <div class="md:w-1/2 text-gray-700">
+                                    <p class="mb-2"><strong>Objective:</strong> Mechanism for moving heavy loads safely.</p>
+                                    <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
+                                        <li>Developed compact hydraulic system for efficient lifting.</li>
+                                        <li>Reduced manual handling time by 30%.</li>
+                                        <li>Improved workplace safety, cutting injury reports.</li>
+                                    </ul>
+                                    <p class="mt-2"><strong>My Role:</strong> System Modeling, Stress Analysis, Fabrication.</p>
+                                </div>
+                            </div>
                         </div>
-                      </div>
             
-                      <div class="bg-gray-100 dark:bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300 md:col-span-2">
-                        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-                          Self-Propelled Onion Harvester
-                        </h3>
-                        <div class="flex flex-col md:flex-row md:space-x-6">
-                          <div class="md:w-1/2 mb-4 md:mb-0">
-                            <img src="https://i.imgur.com/TSu6dFc.jpeg" alt="Self-propelled onion harvester" class="rounded-lg shadow-lg w-full h-auto">
-                          </div>
-                          <div class="md:w-1/2 text-gray-700 dark:text-gray-300">
-                            <p class="mb-2"><strong>Objective:</strong> Reduce crop bruising and improve harvesting efficiency.</p>
-                            <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
-                              <li>Led the R&D and Digging System team in developing a Self-Propelled Onion Harvester from concept to prototype.</li>
-                              <li>Directed a 15-member team, managing tasks across design, manufacturing, and testing phases.</li>
-                              <li>Designed and integrated precision cutting blades and lifting mechanisms to reduce onion bruising and mechanical damage by ~5%.</li>
-                              <li>Engineered the system to adapt across diverse soil types and terrains, improving traction, balance, and stability.</li>  
-                              <li>Optimized ground clearance, wheelbase, and drive control for seamless operation on uneven agricultural landscapes.</li>  
-                              <li>Achieved a 15% improvement in harvesting efficiency compared to conventional manual harvesting methods.</li>  
-                              <li>Automated digging, lifting, and conveyance systems, enabling a 20% reduction in manual labor requirements.</li>  
-                              <li>Improved farmer safety and consistency by reducing dependence on manual interventions in field operations.</li>  
-                              <li>Focused on minimizing post-harvest losses, increasing produce shelf life and preserving crop quality.</li>  
-                              <li>Applied engineering design principles to build a mechanically robust yet adaptable harvester.</li>  
-                              <li>Presented the project at national-level competitions, securing All India Rank 5 (AIR 5) among peers.</li>  
-                              <li>Recognized with the Best Design Award, highlighting innovation and technical excellence.</li>  
-                            </ul>
-                            <p class="mt-2"><strong>My Role:</strong> R&D Lead, Mechanical Design, Field Testing.</p>
-                          </div>
+                        <div class="bg-white rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300 md:col-span-2">
+                            <h3 class="text-2xl font-bold mb-4 text-gray-900">
+                                Self-Propelled Onion Harvester
+                            </h3>
+                            <div class="flex flex-col md:flex-row md:space-x-6">
+                                <div class="md:w-1/2 mb-4 md:mb-0">
+                                    <img src="https://i.imgur.com/TSu6dFc.jpeg" alt="Self-propelled onion harvester" class="rounded-lg shadow-lg w-full h-auto">
+                                </div>
+                                <div class="md:w-1/2 text-gray-700">
+                                    <p class="mb-2"><strong>Objective:</strong> Reduce crop bruising and improve harvesting efficiency.</p>
+                                    <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
+                                        <li>Led the R&D and Digging System team in developing a Self-Propelled Onion Harvester from concept to prototype.</li>
+                                        <li>Directed a 15-member team, managing tasks across design, manufacturing, and testing phases.</li>
+                                        <li>Designed and integrated precision cutting blades and lifting mechanisms to reduce onion bruising and mechanical damage by ~5%.</li>
+                                        <li>Engineered the system to adapt across diverse soil types and terrains, improving traction, balance, and stability.</li>  
+                                        <li>Optimized ground clearance, wheelbase, and drive control for seamless operation on uneven agricultural landscapes.</li>  
+                                        <li>Achieved a 15% improvement in harvesting efficiency compared to conventional manual harvesting methods.</li>  
+                                        <li>Automated digging, lifting, and conveyance systems, enabling a 20% reduction in manual labor requirements.</li>  
+                                        <li>Improved farmer safety and consistency by reducing dependence on manual interventions in field operations.</li>  
+                                        <li>Focused on minimizing post-harvest losses, increasing produce shelf life and preserving crop quality.</li>  
+                                        <li>Applied engineering design principles to build a mechanically robust yet adaptable harvester.</li>  
+                                        <li>Presented the project at national-level competitions, securing All India Rank 5 (AIR 5) among peers.</li>  
+                                        <li>Recognized with the Best Design Award, highlighting innovation and technical excellence.</li>  
+                                    </ul>
+                                    <p class="mt-2"><strong>My Role:</strong> R&D Lead, Mechanical Design, Field Testing.</p>
+                                </div>
+                            </div>
                         </div>
-                      </div>
             
                     </div>
                 </div>
             </section>
             
-    
-            <section id="contact" data-page="contact" class="content-section py-20 opacity-0">
+            
+            <section id="contact" data-page="contact" class="content-section py-20 opacity-0 bg-gray-50">
                 <div class="container mx-auto px-4 py-8 md:py-12 text-center">
-                    <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-gray-900 dark:text-gray-100">CONTACT ME</h2>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-gray-900">CONTACT ME</h2>
                     <div class="max-w-xl mx-auto flex flex-col space-y-6 justify-center items-center">
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 w-full md:w-auto">
-                            <a href="mailto:swapniljoshi657@gmail.com" class="flex flex-col items-center space-y-2 text-blue-600 dark:text-blue-400">
+                        <div class="bg-white p-6 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 w-full md:w-auto">
+                            <a href="mailto:swapniljoshi657@gmail.com" class="flex flex-col items-center space-y-2 text-blue-600">
                                 <i class="fas fa-envelope text-4xl"></i>
                                 <span class="font-bold text-lg">Email</span>
                                 <span>swapniljoshi657@gmail.com</span>
                             </a>
                         </div>
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 w-full md:w-auto">
-                            <a href="https://linkedin.com/in/swapniljoshi31" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center space-y-2 text-blue-600 dark:text-blue-400">
+                        <div class="bg-white p-6 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 w-full md:w-auto">
+                            <a href="https://linkedin.com/in/swapniljoshi31" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center space-y-2 text-blue-600">
                                 <i class="fab fa-linkedin text-4xl"></i>
                                 <span class="font-bold text-lg">LinkedIn</span>
                                 <span>/in/swapniljoshi31</span>
@@ -278,39 +289,13 @@
         const navMenu = document.getElementById('nav-menu');
         const body = document.body;
 
-        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+        // **REMOVED: Theme preference media query and theme storage logic**
 
-        // Function to set the theme
-        function setTheme(isDark) {
-            if (isDark) {
-                // Ensure text and background classes are correctly toggled for a dark theme
-                body.classList.remove('bg-gray-100', 'text-gray-900');
-                body.classList.add('bg-gray-900', 'text-gray-100', 'dark');
-            } else {
-                // Ensure text and background classes are correctly toggled for a light theme
-                body.classList.remove('bg-gray-900', 'text-gray-100', 'dark');
-                body.classList.add('bg-gray-100', 'text-gray-900');
-            }
-        }
+        // **REMOVED: setTheme function**
 
-        // Check for saved theme in localStorage or system preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            setTheme(savedTheme === 'dark');
-        } else {
-            setTheme(prefersDarkScheme.matches);
-        }
+        // **REMOVED: Initial theme check/set logic**
 
-        // Add event listener to the toggle button
-        themeToggle.addEventListener('click', () => {
-            if (body.classList.contains('dark')) {
-                setTheme(false);
-                localStorage.setItem('theme', 'light');
-            } else {
-                setTheme(true);
-                localStorage.setItem('theme', 'dark');
-            }
-        });
+        // **REMOVED: Theme toggle button event listener**
 
         // Function to toggle the mobile menu state (Simplified with grouped classes)
         function toggleMobileMenu() {
@@ -331,6 +316,9 @@
         const contentPagesContainer = document.getElementById('content-pages');
         const homeSection = document.getElementById('home');
         const contentPages = document.querySelectorAll('#content-pages .content-section');
+        
+        // Configuration for the staggered animation delay
+        const STAGGER_DELAY_MS = 400; 
 
         function showPage(pageId, shouldUpdateHistory = true) {
             // Find the target element ID
@@ -358,6 +346,20 @@
 
             // Hide all pages with a fade-out effect
             contentPages.forEach(page => {
+                // Find all potential animated elements (now using the specific class 'experience-card')
+                const animatedElements = page.querySelectorAll('.experience-card');
+                
+                // CRITICAL: Reset the animation state before hiding
+                animatedElements.forEach(el => {
+                    // 1. Remove the animation class if it ran
+                    el.classList.remove('animate-fade-in'); 
+                    // 2. Add the Tailwind utility class to make it invisible again
+                    el.classList.add('opacity-0'); 
+                    // 3. Reset the group hover opacity state (important for a clean reset)
+                    el.classList.add('group-hover:opacity-70');
+                    el.classList.add('hover:opacity-100');
+                });
+
                 page.classList.add('hidden');
                 page.classList.remove('opacity-100');
                 page.classList.add('opacity-0');
@@ -367,6 +369,38 @@
             const targetPage = document.querySelector(`[data-page="${pageId}"]`);
             if (targetPage) {
                 targetPage.classList.remove('hidden');
+
+                // NEW LOGIC: Trigger staggered animation for the experience page
+                if (pageId === 'experience') {
+                    // Find all animated elements (the experience cards)
+                    const animatedElements = targetPage.querySelectorAll('.experience-card');
+                    animatedElements.forEach((el, index) => {
+                        // Remove the group hover classes temporarily while fading in to prevent conflict
+                        el.classList.remove('group-hover:opacity-70');
+                        el.classList.remove('hover:opacity-100');
+
+                        // 1. Remove the static hidden state (opacity-0)
+                        el.classList.remove('opacity-0'); 
+                        
+                        // 2. Add delay logic
+                        const delay = index * STAGGER_DELAY_MS; 
+
+                        setTimeout(() => {
+                            // Force repaint/reflow to reset animation state
+                            void el.offsetWidth; 
+                            
+                            // 3. Add the class to start the animation
+                            el.classList.add('animate-fade-in'); 
+
+                            // Re-apply the group hover classes after animation is expected to finish
+                            setTimeout(() => {
+                                el.classList.add('group-hover:opacity-70');
+                                el.classList.add('hover:opacity-100');
+                            }, 1000); // 1.0s is the animation duration
+                        }, delay);
+                    });
+                }
+
                 setTimeout(() => {
                     targetPage.classList.add('opacity-100');
                     // Scroll to the top of the content area
